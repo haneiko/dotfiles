@@ -1,0 +1,6 @@
+#!/bin/sh
+
+/usr/local/bin/emacs --daemon
+/usr/local/bin/urxvtd -q -o -f
+/usr/local/bin/xrdb -load .Xresources
+/usr/local/bin/i3

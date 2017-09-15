@@ -1,0 +1,6 @@
+#ifndef ${1:environment}
+#define $1
+
+$0
+
+#endif /* $1 */

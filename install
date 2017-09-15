@@ -1,0 +1,48 @@
+#!/bin/sh
+
+set -e
+IFS='
+'
+
+lnflags=-s
+
+usage() {
+    cat << EOF
+usage: install.sh [options]
+
+OPTIONS:
+  -l    Install config files as hard links
+  -h    Show this message
+EOF
+    exit $1
+}
+
+## Parse command line switches
+while getopts "lph" option; do
+    case "$option" in
+        l) lnflags= ;;
+        h) usage 0 ;;
+        ?) usage 1 ;;
+    esac
+done
+
+## Installs an individual dotfile
+install() {
+    dotfile="$1"
+    dest="$HOME/.${dotfile#./_*}"
+    echo Installing "$dotfile"
+    mkdir -p -m 700 "$(dirname "$dest")"
+    chmod go-rwx "$dotfile"
+    ln -f $lnflags "$(pwd)/$dotfile" "$dest"
+}
+
+## Install each _-prefixed file
+for source in $(find . -name '_*' | sort); do
+    if [ -d "$source" ]; then
+        for dotfile in $(find "$source" -type f | sort); do
+            install "$dotfile"
+        done
+    else
+        install "$source"
+    fi
+done

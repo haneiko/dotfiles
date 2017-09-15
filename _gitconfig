@@ -1,0 +1,10 @@
+[user]
+	email = mateus.haneiko@gmail.com
+	name = Mateus C. Haneiko
+[push]
+	default = simple
+
+[alias]
+	ca = commit -am
+	cm = commit -m
+	s = status

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ "$(uname)" = "Linux" ]; then
+	alias ls='ls --color=auto -hF'
+	alias apts='apt search'
+	alias ins='sudo apt install'
+elif [ "$(uname)" = "FreeBSD" ]; then
+	alias ls='ls -GhF'
+	alias pkgs='pkg search'
+	alias ins='sudo pkg install'
+fi
+
+alias j='jobs -l'
+alias h='history 25'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ll -a'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias emc='emacsclient -a "" -nw'
+alias emt='emacs -nw'
+alias g='git'

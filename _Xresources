@@ -1,0 +1,10 @@
+URxvt.font:		xft:Monospace:size=9
+URxvt.letterSpace:	-1
+URxvt.scrollBar:	false
+URxvt.cursorBlink:	true
+URxvt.perl-ext-common:	default,matcher
+URxvt.matcher.button:	1
+URxvt.urlLauncher:	firefox
+URxvt.background:	#000000
+URxvt.foreground:	#ffffff
+URxvt.cursorColor:	#00ff00
