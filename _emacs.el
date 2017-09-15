@@ -239,17 +239,3 @@
 
 (provide 'emacs)
 ;;; emacs.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (flycheck company-tern tern web-mode projectile evil-magit magit geiser company-c-headers company-bibtex company-jedi company yasnippet paredit-everywhere evil-paredit paredit evil-leader smart-tabs-mode use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
