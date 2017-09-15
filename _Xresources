@@ -2,7 +2,8 @@ URxvt.font:		xft:Monospace:size=9
 URxvt.letterSpace:	-1
 URxvt.scrollBar:	false
 URxvt.cursorBlink:	true
-URxvt.perl-ext-common:	default,matcher
+URxvt.perl-ext-common:	default,matcher,fullscreen
+URxvt.keysym.F11:	perl:fullscreen:switch
 URxvt.matcher.button:	1
 URxvt.urlLauncher:	firefox
 URxvt.background:	#000000
