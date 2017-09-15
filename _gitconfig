@@ -8,3 +8,4 @@
 	ca = commit -am
 	cm = commit -m
 	s = status
+        lol = log --oneline
