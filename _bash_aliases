@@ -18,6 +18,15 @@ alias lla='ll -a'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias emc='emacsclient -a "" -nw'
-alias emt='emacs -nw'
 alias g='git'
+
+case $TERM in
+    rxvt*)
+        alias emc='TERM=xterm-256color emacsclient -a "" -nw'
+        alias emt='TERM=xterm-256color emacs -nw'
+        ;;
+    xterm)
+        alias emc='emacsclient -a "" -nw'
+        alias emt='emacs -nw'
+        ;;
+esac
