@@ -40,10 +40,10 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; use a mix of tabs to indent and spaces to align
-(use-package smart-tabs-mode
-  :ensure t
-  :config
-  (smart-tabs-insinuate 'c 'c++))
+;; (use-package smart-tabs-mode
+;;   :ensure t
+;;   :config
+;;   (smart-tabs-insinuate 'c 'c++))
 
 (use-package evil-leader
   :ensure t
@@ -211,9 +211,16 @@
 	    (modify-syntax-entry ?_ "w")
 	    ;; set old style comments
 	    (setq comment-style 'extra-line)
-	    (setq tab-width 4)
-	    (setq compilation-read-command nil)
-	    (setq compile-command "make --no-print-directory -C debug")
+            (setq c-basic-offset 8)
+            (setq tab-width 8)
+            (setq indent-tabs-mode t)
+            (setq c-tab-always-indent t)
+            ;; DO NOT expand tabs when deleting:
+            (setq backward-delete-char-untabify-method nil)
+            ;; align # to the left
+            (setq c-electric-pound-behavior '(alignleft))
+	    ;; (setq compilation-read-command nil)
+	    ;; (setq compile-command "make --no-print-directory -C debug")
 	    (setq show-trailing-whitespace t)
 	    ;; on save delete all trailing whitespace
 	    (add-to-list 'write-file-functions
