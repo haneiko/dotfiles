@@ -9,3 +9,5 @@
 	cm = commit -m
 	s = status
         lol = log --oneline
+[magit]
+	hideCampaign = true
