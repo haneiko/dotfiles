@@ -201,6 +201,11 @@
 		'normal flycheck-mode-map (kbd "[e")
 		'flycheck-previous-error))))
 
+(add-hook 'python-mode-hook`
+	  (lambda ()
+	    ;; underscore will be recognised as word character
+	    (modify-syntax-entry ?_ "w")))
+
 (add-hook 'c-mode-common-hook`
 	  (lambda ()
 	    (setq c-default-style
