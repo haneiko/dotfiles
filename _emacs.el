@@ -207,15 +207,15 @@
 	    (modify-syntax-entry ?_ "w")))
 
 (add-hook 'c-mode-common-hook`
-	  (lambda ()
-	    (setq c-default-style
-		  '((java-mode . "java")
-		    (awk-mode . "awk")
-		    (other . "k&r")))
-	    ;; underscore will be recognised as word character
-	    (modify-syntax-entry ?_ "w")
-	    ;; set old style comments
-	    (setq comment-style 'extra-line)
+          (lambda ()
+            (setq c-default-style
+                  '((java-mode . "java")
+                    (awk-mode . "awk")
+                    (other . "k&r")))
+            ;; underscore will be recognised as word character
+            (modify-syntax-entry ?_ "w")
+            ;; set old style comments
+            (setq comment-style 'extra-line)
             (setq c-basic-offset 8)
             (setq tab-width 8)
             (setq indent-tabs-mode t)
@@ -224,12 +224,16 @@
             (setq backward-delete-char-untabify-method nil)
             ;; align # to the left
             (setq c-electric-pound-behavior '(alignleft))
-	    ;; (setq compilation-read-command nil)
-	    ;; (setq compile-command "make --no-print-directory -C debug")
-	    (setq show-trailing-whitespace t)
-	    ;; on save delete all trailing whitespace
-	    (add-to-list 'write-file-functions
-			 'delete-trailing-whitespace)))
+            (setq compilation-read-command nil)
+            (setq compilation-ask-about-save nil)
+            (setq compile-command "make -k")
+            (local-set-key (kbd "C-c C-c") 'compile)
+            (local-set-key (kbd "M-n") 'next-error)
+            (local-set-key (kbd "M-N") 'previous-error)
+            (setq show-trailing-whitespace t)
+            ;; on save delete all trailing whitespace
+            (add-to-list 'write-file-functions
+                         'delete-trailing-whitespace)))
 
 (add-hook 'scheme-mode-hook`
 	  (lambda ()
