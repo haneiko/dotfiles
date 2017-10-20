@@ -177,15 +177,15 @@
 ;; JavaScript completion - company version
 ;; npm install -g tern
 ;; needs .tern-project file on project folder
-(use-package tern
-  :ensure t
-  :config
-  (add-hook 'js-mode-hook (lambda () (tern-mode t)))
-  (use-package company-tern
-    :ensure t
-    :config
-    (add-to-list 'company-backends 'company-tern)
-    (setq company-tern-property-marker " p")))
+;; (use-package tern
+;;   :ensure t
+;;   :config
+;;   (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+;;   (use-package company-tern
+;;     :ensure t
+;;     :config
+;;     (add-to-list 'company-backends 'company-tern)
+;;     (setq company-tern-property-marker " p")))
 
 ;; JavaScript: npm install -g jshint
 (use-package flycheck
