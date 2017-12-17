@@ -47,6 +47,23 @@
 ;;   :config
 ;;   (smart-tabs-insinuate 'c 'c++))
 
+;; file tree plugin
+(use-package neotree
+  :ensure t
+  :config
+  (global-set-key [f8] 'neotree-toggle)
+  ;; projectile-switch-project will change neo-tree root automatically.
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+  ;; let it find current file and jump to node. (not working?)
+  (setq neo-smart-open t)
+  (use-package all-the-icons
+    :ensure t
+    :config
+    ;; run this command to install the fonts:
+    ;; all-the-icons-install-fonts
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+    (neotree)))
+
 (use-package evil-leader
   :ensure t
   :config
@@ -69,6 +86,10 @@
 (use-package evil ; vim plugin
   :ensure t
   :config
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
   (evil-mode 1))
 
 (use-package paredit ; lisp plugin
