@@ -22,10 +22,10 @@
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (setq inhibit-startup-screen t) ; Disables the manual page on startup
 (column-number-mode 1) ; Show column number in the mode line
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(when (boundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
+;; (tool-bar-mode -1)
+;; (menu-bar-mode -1)
+;; (when (boundp 'scroll-bar-mode)
+;;   (scroll-bar-mode -1))
 (show-paren-mode 1) ; highlight matching paren, brace
 (electric-pair-mode 1) ; auto-pair ({[]})
 (setq make-backup-files nil) ; stop creating backup~ files
