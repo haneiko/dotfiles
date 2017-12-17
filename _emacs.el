@@ -18,6 +18,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (setq inhibit-startup-screen t) ; Disables the manual page on startup
 (column-number-mode 1) ; Show column number in the mode line
 (tool-bar-mode -1)
