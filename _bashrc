@@ -1,6 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+#!/bin/bash
 
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
@@ -27,10 +25,6 @@ shopt -s checkwinsize
 
 # No history file for less(1)
 export LESSHISTFILE=-
-# export PAGER=less
-# export EDITOR=vim
-export GOPATH=$HOME/goprojects
-export PATH=$PATH:$GOPATH/bin
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
