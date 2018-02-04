@@ -18,12 +18,12 @@
 (eval-when-compile
   (require 'use-package))
 
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 (setq inhibit-startup-screen t) ; Disables the manual page on startup
 (column-number-mode 1) ; Show column number in the mode line
 ;; (linum-mode 1) ; display line numbers in the left margin
-;; (tool-bar-mode -1)
+(tool-bar-mode -1)
 ;; (menu-bar-mode -1)
 ;; (when (boundp 'scroll-bar-mode)
 ;;   (scroll-bar-mode -1))
@@ -54,16 +54,15 @@
   :config
   (global-set-key [f8] 'neotree-toggle)
   ;; projectile-switch-project will change neo-tree root automatically.
-  (setq projectile-switch-project-action 'neotree-projectile-action)
+  ;; (setq projectile-switch-project-action 'neotree-projectile-action)
   ;; let it find current file and jump to node. (not working?)
-  (setq neo-smart-open t)
+  ;; (setq neo-smart-open t)
   (use-package all-the-icons
     :ensure t
     :config
     ;; run this command to install the fonts:
     ;; all-the-icons-install-fonts
-    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-    (neotree)))
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))))
 
 (use-package evil-leader
   :ensure t
@@ -181,6 +180,15 @@
   :config
   (projectile-mode 1)
   (setq projectile-enable-caching t))
+
+;; install silversearcher-ag
+(use-package ag
+  :ensure t
+  :config
+  (setq ag-arguments (quote ("--smart-case"))) ; --stats removed
+  (setq ag-highlight-search t)
+  (setq ag-reuse-buffers t)
+  (setq ag-reuse-window t))
 
 (use-package web-mode
   :ensure t
