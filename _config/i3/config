@@ -169,3 +169,5 @@ bindsym Mod1+r mode "resize"
 bar {
         status_command i3status
 }
+
+bindsym Mod1+Shift+s exec --no-startup-id ~/monitor

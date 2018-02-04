@@ -22,6 +22,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (setq inhibit-startup-screen t) ; Disables the manual page on startup
 (column-number-mode 1) ; Show column number in the mode line
+;; (linum-mode 1) ; display line numbers in the left margin
 ;; (tool-bar-mode -1)
 ;; (menu-bar-mode -1)
 ;; (when (boundp 'scroll-bar-mode)
@@ -141,7 +142,28 @@
     :config
     (add-to-list 'company-backends 'company-c-headers)
     (add-to-list 'company-c-headers-path-system
-		 "/usr/include/c++/4.8/")))
+                 (list "/usr/include/c++/4.8/"
+                       "/usr/include/gtk-3.0"
+                       "/usr/include/gtk-3.0"
+                       "/usr/include/at-spi2-atk/2.0"
+                       "/usr/include/at-spi-2.0"
+                       "/usr/include/dbus-1.0"
+                       "/usr/lib/x86_64-linux-gnu/dbus-1.0/include"
+                       "/usr/include/gtk-3.0"
+                       "/usr/include/gio-unix-2.0/"
+                       "/usr/include/cairo"
+                       "/usr/include/pango-1.0"
+                       "/usr/include/harfbuzz"
+                       "/usr/include/pango-1.0"
+                       "/usr/include/atk-1.0"
+                       "/usr/include/cairo"
+                       "/usr/include/pixman-1"
+                       "/usr/include/freetype2"
+                       "/usr/include/libpng16"
+                       "/usr/include/gdk-pixbuf-2.0"
+                       "/usr/include/libpng16"
+                       "/usr/include/glib-2.0"
+                       "/usr/lib/x86_64-linux-gnu/glib-2.0/include"))))
 ;; only /usr/include/ and /usr/local/include/ by default
 
 (use-package geiser ; scheme plugin
@@ -223,6 +245,32 @@
 	      (evil-define-key
 		'normal flycheck-mode-map (kbd "[e")
 		'flycheck-previous-error))))
+
+(use-package go-mode
+  :ensure t
+  :config
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  ;; go auto completion
+  (use-package company-go
+    :ensure t
+    :config
+    (add-hook 'go-mode-hook
+              (lambda ()
+                (set (make-local-variable 'company-backends) '(company-go))
+                (company-mode)))
+    ;; bigger popup window
+    (setq company-tooltip-limit 20)                      
+    ;; decrease delay before autocompletion popup shows
+    (setq company-idle-delay .3)
+    ;; remove annoying blinking
+    (setq company-echo-delay 0)
+    ;; start autocompletion only after typing
+    (setq company-begin-commands '(self-insert-command)))
+  (use-package go-rename
+    :ensure t))
+;;   :config
+;;   (use-package go-snippets
+    ;; :ensure t))
 
 (add-hook 'python-mode-hook`
 	  (lambda ()

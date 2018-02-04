@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+
 # If not running interactively, don't do anything
 [[ -z $PS1 ]] && return
 
@@ -13,6 +15,8 @@ export PAGER=less
 export EDITOR=vim
 export BROWSER=firefox
 export PS1="\[\e[34m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[32m\]\w\[\e[m\] \[\e[34m\]%\[\e[m\] "
+export GOPATH=$HOME/goprojects
+export PATH=$PATH:$GOPATH/bin
 
 # No history file for bash(1)
 unset HISTFILE

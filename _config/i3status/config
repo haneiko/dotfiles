@@ -12,18 +12,18 @@ general {
 }
 
 order += "disk /"
-order += "wireless _first_"
-order += "ethernet alc0"
+order += "wireless wlan1"
+order += "ethernet eth0"
 order += "battery all"
 order += "load"
 order += "tztime local"
 
-wireless _first_ {
+wireless wlan1 {
         format_up = "W: (%quality at %essid) %ip"
         format_down = "W: down"
 }
 
-ethernet alc0 {
+ethernet eth0 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
