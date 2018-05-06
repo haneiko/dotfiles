@@ -1,0 +1,5 @@
+*termName:      xterm-256color
+*cursorBlink:   true
+#*cursorColor:   #00dd00
+*background:    #000000
+*foreground:    #ffffff

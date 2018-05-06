@@ -5,22 +5,26 @@ IFS='
 '
 
 lnflags=-s
+## Install each _-prefixed file
+prefix='_*'
 
 usage() {
     cat << EOF
 usage: install.sh [options]
 
 OPTIONS:
-  -l    Install config files as hard links
-  -h    Show this message
+  -l          Install config files as hard links
+  -p prefix   Install files starting with 'prefix'
+  -h          Show this message
 EOF
     exit $1
 }
 
 ## Parse command line switches
-while getopts "lph" option; do
-    case "$option" in
+while getopts "lhp:" option; do
+    case "${option}" in
         l) lnflags= ;;
+        p) prefix="${OPTARG}" ;;
         h) usage 0 ;;
         ?) usage 1 ;;
     esac
@@ -36,8 +40,7 @@ install() {
     ln -f $lnflags "$(pwd)/$dotfile" "$dest"
 }
 
-## Install each _-prefixed file
-for source in $(find . -name '_*' | sort); do
+for source in $(find . -name "${prefix}" | sort); do
     if [ -d "$source" ]; then
         for dotfile in $(find "$source" -type f | sort); do
             install "$dotfile"

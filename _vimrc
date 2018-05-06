@@ -36,7 +36,7 @@ set history=1000
 filetype plugin indent on
 
 " Maximum width of text that is being inserted.
-set textwidth=79
+set textwidth=80
 
 " Print the line number in front of each line.
 set number
@@ -112,9 +112,6 @@ autocmd BufWritePre * :call <SID>RemoveTrailingWhitespaces()
 " Start highlighting, use 'background' to set colors
 syntax on
 
-" Number of colors
-set t_Co=256
-
 "highlight Normal ctermbg=Black ctermfg=White
 
 " When set to "dark", Vim will try to use colors that look good on a
@@ -124,7 +121,7 @@ set t_Co=256
 
 " 'colorcolumn' is a comma separated list of screen columns that are
 " highlighted with ColorColumn |hl-ColorColumn|.
-set colorcolumn=80
+set colorcolumn=81
 highlight colorcolumn ctermbg=White cterm=none
 
 " Mistakes

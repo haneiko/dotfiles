@@ -34,7 +34,7 @@ battery all {
 
 tztime local {
         format = "%Y-%m-%d %H:%M:%S"
-	timezone = "America/Sao Paulo"
+        timezone = "America/Sao Paulo"
 }
 
 disk "/" {

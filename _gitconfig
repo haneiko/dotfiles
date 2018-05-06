@@ -1,6 +1,7 @@
 [user]
 	email = mateus.haneiko@gmail.com
 	name = Mateus C. Haneiko
+
 [push]
 	default = simple
 
@@ -8,6 +9,7 @@
 	ca = commit -am
 	cm = commit -m
 	s = status
-        lol = log --oneline
+	lol = log --oneline
+
 [magit]
 	hideCampaign = true

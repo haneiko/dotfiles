@@ -1,34 +1,20 @@
 #!/usr/bin/env bash
 
-case $TERM in
-rxvt*)
-    alias emc='TERM=xterm-256color emacsclient -a "" -nw'
-    alias emt='TERM=xterm-256color emacs -nw'
-    ;;
-xterm)
-    alias emc='emacsclient -a "" -nw'
-    alias emt='emacs -nw'
-    ;;
+case $(uname) in
+	FreeBSD)
+		alias ls='ls -hFG'
+	;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto -hF'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ll -A'
-alias apts='apt search'
-alias ins='sudo apt install'
 alias j='jobs -l'
 alias h='history 25'
 alias g='git'
+alias emc='emacsclient -a "" -nw'
+alias emt='emacs -nw'
+
