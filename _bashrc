@@ -29,7 +29,7 @@ export LESSHISTFILE=-
 PS1='\u@\h:\w\$ '
 
 case "$TERM" in
-    xterm-color|*-256color)
+    xterm-color|*-256color|rxvt-unicode)
         #PS1='\e[90m\u@\h:\e[39m\w$(__git_ps1 " (%s)") \$ '
         GIT_PS1_SHOWCOLORHINTS=true
         PROMPT_COMMAND='__git_ps1 "\e[90m\u@\h: \e[39m\w" " $ "'
