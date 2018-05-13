@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 case $(uname) in
+	Linux)
+		alias ls='ls --color=auto'
+	;;
 	FreeBSD)
 		alias ls='ls -hFG'
 	;;
@@ -17,4 +20,3 @@ alias h='history 25'
 alias g='git'
 alias emc='emacsclient -a "" -nw'
 alias emt='emacs -nw'
-
