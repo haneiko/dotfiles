@@ -2,6 +2,5 @@ XTerm*termName: xterm-256color
 URxvt*termName: rxvt-unicode
 *cursorBlink:   true
 *cursorColor:   #00dd00
-*background:    #000000
-*foreground:    #ffffff
+URxvt*reverseVideo: True
 *scrollBar:     false
