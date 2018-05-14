@@ -2,12 +2,13 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+	*i*) ;;
+	*) return ;;
 esac
 
 export EDITOR=vim
 export PAGER=less
+export PATH="$HOME/.local/bin:$PATH"
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
@@ -29,35 +30,35 @@ export LESSHISTFILE=-
 PS1='\u@\h:\w\$ '
 
 case "$TERM" in
-    xterm-color|*-256color|rxvt-unicode)
-        #PS1='\e[90m\u@\h:\e[39m\w$(__git_ps1 " (%s)") \$ '
-        GIT_PS1_SHOWCOLORHINTS=true
-        PROMPT_COMMAND='__git_ps1 "\e[90m\u@\h: \e[39m\w" " $ "'
-    ;;
+	xterm-color|*-256color|rxvt-unicode)
+		#PS1='\e[90m\u@\h:\e[39m\w$(__git_ps1 " (%s)") \$ '
+		GIT_PS1_SHOWCOLORHINTS=true
+		PROMPT_COMMAND='__git_ps1 "\e[90m\u@\h:\e[39m\w" " $ "'
+	;;
 esac
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
+	xterm*|rxvt*)
+		PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
 esac
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
+	. ~/.bash_local
 fi
 
 if ! shopt -oq posix; then
 	if [ -f /usr/local/share/bash-completion/bash_completion.sh ]; then
 		. /usr/local/share/bash-completion/bash_completion.sh
-    elif [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
+	elif [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
 # make less more friendly for non-text input files, see lesspipe(1)

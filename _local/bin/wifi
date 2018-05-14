@@ -1,0 +1,31 @@
+#!/bin/sh
+
+cmd=$1
+
+usage(){
+	printf "Usage:\n"
+	printf "\twifi -l\n"
+	printf "\twifi list\n"
+	printf "\twifi -c SSID\n"
+	printf "\twifi connect SSID\n"
+}
+
+read_password(){
+	stty -echo
+	printf "Password: "
+	read PASSWORD
+	stty echo
+	printf "\n"
+}
+
+case "$cmd" in
+	"-h"|"help") usage ;;
+	"-l"|"list") nmcli device wifi list ;;
+	"-c"|"connect")
+		SSID="$2"
+		echo SSID: $SSID
+		read_password
+		nmcli device wifi connect "$SSID" password "$PASSWORD"
+		;;
+	*) usage ;;
+esac
