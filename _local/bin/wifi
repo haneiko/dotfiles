@@ -1,6 +1,13 @@
 #!/bin/sh
 
 cmd=$1
+NMCLI=$(which nmcli)
+
+if [ -z "$NMCLI" ]; then
+	echo nmcli missing
+	echo install network-manager
+	exit 1
+fi
 
 usage(){
 	printf "Usage:\n"
