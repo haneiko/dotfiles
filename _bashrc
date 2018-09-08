@@ -33,7 +33,7 @@ case "$TERM" in
 	xterm-color|*-256color|rxvt-unicode)
 		#PS1='\e[90m\u@\h:\e[39m\w$(__git_ps1 " (%s)") \$ '
 		GIT_PS1_SHOWCOLORHINTS=true
-		PROMPT_COMMAND='__git_ps1 "\e[90m\u@\h:\e[39m\w" " $ "'
+		PROMPT_COMMAND='__git_ps1 "\[\e[90m\]\u@\h:\[\e[39m\]\w" " $ "'
 	;;
 esac
 
@@ -42,14 +42,6 @@ case "$TERM" in
 	xterm*|rxvt*)
 		PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
 esac
-
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
-
-if [ -f ~/.bash_local ]; then
-	. ~/.bash_local
-fi
 
 if ! shopt -oq posix; then
 	if [ -f /usr/local/share/bash-completion/bash_completion.sh ]; then
@@ -70,4 +62,12 @@ fi
 if [ "$TERM" == "linux" ]; then
 	# disable bell
 	setterm --blength 0
+fi
+
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_local ]; then
+	. ~/.bash_local
 fi
