@@ -11,5 +11,8 @@
 	s = status
 	lol = log --oneline
 
+[log]
+	decorate = auto
+
 [magit]
 	hideCampaign = true
