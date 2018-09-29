@@ -1,0 +1,18 @@
+#!/bin/sh
+
+X=$1
+BL=/sys/class/backlight/radeon_bl0/
+MAX=$(cat $BL/max_brightness)
+
+if [ -z "$X" ]; then
+	echo no args
+	exit 1
+fi
+
+if [ -z "$MAX" ]; then
+	echo no max brightness found
+	exit 1
+fi
+
+VAL=$(echo "$MAX * $X / 100" | bc)
+echo $VAL >> $BL/brightness
