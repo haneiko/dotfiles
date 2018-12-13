@@ -20,17 +20,35 @@
 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
-(setq inhibit-startup-screen t) ; Disables the manual page on startup
-(column-number-mode 1) ; Show column number in the mode line
-;; (linum-mode 1) ; display line numbers in the left margin
+; display line numbers in the left margin
+(when (version<= "26.0.50" emacs-version)
+  (global-display-line-numbers-mode))
+;; disables the old way
+(linum-mode -1)
+
+; Disables the manual page on startup
+(setq inhibit-startup-screen t)
+
+; Show column number in the mode line
+(column-number-mode 1)
+
 (tool-bar-mode -1)
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 ;; (when (boundp 'scroll-bar-mode)
 ;;   (scroll-bar-mode -1))
-(show-paren-mode 1) ; highlight matching paren, brace
-(electric-pair-mode 1) ; auto-pair ({[]})
-(setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
+
+; highlight matching paren, brace
+;; (show-paren-mode 1)
+
+; auto-pair ({[]})
+(electric-pair-mode 1)
+
+; stop creating backup~ files
+(setq make-backup-files nil)
+
+; stop creating #autosave# files
+(setq auto-save-default nil)
+
 (add-hook 'text-mode 'turn-on-auto-fill)
 (setq package-enable-at-startup nil)
 
@@ -198,48 +216,6 @@
   (setq web-mode-enable-auto-pairing t)
   (setq-default indent-tabs-mode nil))
 
-;; (use-package js2-mode
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
-;; (use-package js2-refactor
-;;   :ensure t
-;;   :config
-;;   (add-hook 'js2-mode-hook #'js2-refactor-mode))
-
-;; (use-package auto-complete
-;;   :ensure t
-;;   :config
-;;   (global-auto-complete-mode))
-;; (use-package ac-js2
-;;   :ensure t
-;;   :config
-;;   (add-hook 'js2-mode-hook 'ac-js2-mode))
-
-;; JavaScript completion - autocomplete version
-;; npm install tern
-;; (use-package tern
-;;   :ensure t
-;;   :config
-;;   (add-hook 'js-mode-hook (lambda () (tern-mode t)))
-;;   (use-package tern-auto-complete
-;;     :ensure t
-;;     :config
-;;     (tern-ac-setup)))
-
-;; JavaScript completion - company version
-;; npm install -g tern
-;; needs .tern-project file on project folder
-;; (use-package tern
-;;   :ensure t
-;;   :config
-;;   (add-hook 'js-mode-hook (lambda () (tern-mode t)))
-;;   (use-package company-tern
-;;     :ensure t
-;;     :config
-;;     (add-to-list 'company-backends 'company-tern)
-;;     (setq company-tern-property-marker " p")))
-
 ;; JavaScript: npm install -g jshint
 (use-package flycheck
   :ensure t
@@ -267,7 +243,7 @@
                 (set (make-local-variable 'company-backends) '(company-go))
                 (company-mode)))
     ;; bigger popup window
-    (setq company-tooltip-limit 20)                      
+    (setq company-tooltip-limit 20)
     ;; decrease delay before autocompletion popup shows
     (setq company-idle-delay .3)
     ;; remove annoying blinking
