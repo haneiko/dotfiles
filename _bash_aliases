@@ -2,7 +2,7 @@
 
 case $(uname) in
 	Linux)
-		alias ls='ls --color=auto'
+		alias ls='ls -hF --color=auto'
 	;;
 	FreeBSD)
 		alias ls='ls -hFG'
