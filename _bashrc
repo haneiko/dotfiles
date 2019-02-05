@@ -10,6 +10,9 @@ export EDITOR=vim
 export PAGER=less
 export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/.gocode"
+if [ -d "$GOPATH" ]; then
+	export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
@@ -34,14 +37,14 @@ case "$TERM" in
 	xterm-color|*-256color|rxvt-unicode)
 		#PS1='\e[90m\u@\h:\e[39m\w$(__git_ps1 " (%s)") \$ '
 		GIT_PS1_SHOWCOLORHINTS=true
-		PROMPT_COMMAND='__git_ps1 "\[\e[90m\]\u@\h:\[\e[39m\]\w" " $ "'
+		PROMPT_COMMAND='__git_ps1 "\[\e[90m\]\u@\h \[\e[39m\]\W" " $ "'
 	;;
 esac
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 	xterm*|rxvt*)
-		PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
+		PS1="\[\e]0;\u@\h \W\a\]$PS1" ;;
 esac
 
 if ! shopt -oq posix; then
