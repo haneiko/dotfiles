@@ -1,9 +1,24 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'Raimondi/delimitMate'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
 " Don't be vi-compatible
 set nocompatible
 
 set autoindent
 set backspace=indent,eol,start
 set smarttab
+" disable preview window when completing
+set completeopt-=preview
 
 " While typing a search command, show where the pattern, as it was typed
 " so far, matches.
@@ -92,11 +107,6 @@ set clipboard=unnamed
 " Automatic reload of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" Show trailing whitespace
-highlight extrawhitespace ctermbg=red cterm=none
-autocmd InsertEnter * match extrawhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match extrawhitespace /\s\+$/
-
 " Remove trailing whitespace on save for ___ files
 function! s:RemoveTrailingWhitespaces()
     "Save last cursor position
@@ -122,7 +132,14 @@ syntax on
 " 'colorcolumn' is a comma separated list of screen columns that are
 " highlighted with ColorColumn |hl-ColorColumn|.
 set colorcolumn=81
-highlight colorcolumn ctermbg=White cterm=none
+highlight colorcolumn ctermfg=Black ctermbg=White     cterm=none
+highlight visual      ctermfg=White ctermbg=LightBlue cterm=none
+highlight MatchParen                ctermbg=Blue      cterm=underline
+
+" Show trailing whitespace
+highlight extrawhitespace ctermbg=red cterm=none
+autocmd InsertEnter * match extrawhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match extrawhitespace /\s\+$/
 
 " Mistakes
 inoremap <F1> <ESC>
@@ -133,3 +150,50 @@ vnoremap <F1> <ESC>
 vnoremap < <gv
 vnoremap > >gv
 
+let mapleader = ","
+
+" Tab navigation
+nnoremap <Leader>t :tabnew<CR>
+nnoremap H gT
+nnoremap L gt
+
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :q!<CR>
+
+" run metalinter on autosave
+let g:go_metalinter_autosave = 1
+" what metalinters?
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'gotype']
+" don't jump to the first error after (not working yet)
+let g:go_jump_to_error = 0
+
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" let g:netrw_winsize = 25
+" let g:netrw_liststyle = 3     " tree list style on netrw
+" let g:netrw_banner = 0        " no banner
+" let g:netrw_browse_split = 3  " open files in a new tab
+" let g:netrw_browse_split = 4  " open in previous window
+" hitting <v> opens a window at right side (default is left side)
+" let g:netrw_altv = 1
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+
+map <F4> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+" map <F4> :NERDTreeFind<CR>
+
+" auto-close NERDTree when the last file is closed
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
