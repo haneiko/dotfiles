@@ -1,6 +1,7 @@
-*termName:      xterm-256color
-URxvt*termName: rxvt-unicode
 *cursorBlink:   true
 *cursorColor:   #00dd00
 *reverseVideo:  True
 *scrollBar:     false
+*termName:      xterm-256color
+URxvt*termName: rxvt-unicode
+URxvt.perl-ext-common: selection-to-clipboard
