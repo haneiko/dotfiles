@@ -7,6 +7,7 @@ case $- in
 esac
 
 export EDITOR=vim
+export SVN_EDITOR='vim -u /etc/vim/vimrc'
 export PAGER=less
 export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/.gocode"
