@@ -10,6 +10,7 @@
 	cm = commit -m
 	s = status
 	lol = log --oneline
+	tags = tag --sort=-creatordate
 
 [log]
 	decorate = auto
