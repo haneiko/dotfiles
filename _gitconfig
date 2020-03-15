@@ -11,6 +11,7 @@
 	s = status
 	lol = log --oneline
 	tags = tag --sort=-creatordate
+	fat = fetch --all --tags
 
 [log]
 	decorate = auto
