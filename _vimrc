@@ -9,6 +9,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+"Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
 " Don't be vi-compatible
@@ -54,7 +55,7 @@ filetype plugin indent on
 set textwidth=80
 
 " Print the line number in front of each line.
-set number
+set nonumber
 
 " Number of spaces that a <Tab> in the file counts for.
 set tabstop=4
@@ -82,8 +83,7 @@ set undolevels=1000
 " Save the whole buffer for undo when reloading it.
 set undoreload=10000
 
-" Don't ring the bell (beep or screen flash) for error messages.
-set noerrorbells
+set visualbell
 
 " When on, the ":substitute" flag 'g' is default on.  This means that
 " all matches in a line are substituted instead of one.
@@ -117,7 +117,7 @@ function! s:RemoveTrailingWhitespaces()
 
     call cursor(l,c)
 endfunction
-autocmd BufWritePre * :call <SID>RemoveTrailingWhitespaces()
+" autocmd BufWritePre * :call <SID>RemoveTrailingWhitespaces()
 
 " Start highlighting, use 'background' to set colors
 syntax on
