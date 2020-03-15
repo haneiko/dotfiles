@@ -1,9 +1,14 @@
 *cursorBlink:          true
 *cursorColor:          #00dd00
 *reverseVideo:         True
-*scrollBar:            false
 *termName:             xterm-256color
+*visualBell:           true
 URxvt*termName:        rxvt-unicode
-URxvt.perl-ext-common: selection-to-clipboard
+URxvt.perl-ext-common: selection-to-clipboard,bell-command
 URxvt.iso14755:        false
 URxvt.iso14755_52:     false
+URxvt.bell-command:    notify-send "rxvt-unicode: bell!"
+URxvt*fading:          15
+URxvt*scrollBar:          true
+URxvt*scrollBar_floating: true
+URxvt*scrollBar_right:    true
