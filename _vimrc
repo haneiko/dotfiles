@@ -181,6 +181,10 @@ let g:NERDDefaultAlign = 'left'
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" single click will open directory nodes, while a double
+" click will still be required for file nodes
+let g:NERDTreeMouseMode = 2
+
 " let g:netrw_winsize = 25
 " let g:netrw_liststyle = 3     " tree list style on netrw
 " let g:netrw_banner = 0        " no banner
@@ -194,8 +198,8 @@ let g:NERDSpaceDelims = 1
 " augroup END
 
 map <F4> :NERDTreeToggle<CR>
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
+" nnoremap <Leader>n :NERDTreeToggle<CR>
+" nnoremap <Leader>f :NERDTreeFind<CR>
 " map <F4> :NERDTreeFind<CR>
 
 " auto-close NERDTree when the last file is closed
