@@ -10,6 +10,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
 "Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
