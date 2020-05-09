@@ -15,6 +15,9 @@ call plug#end()
 " Don't be vi-compatible
 set nocompatible
 
+" mouse support in all modes
+set mouse=a
+
 set autoindent
 set backspace=indent,eol,start
 set smarttab
