@@ -7,10 +7,10 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 "Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
@@ -175,13 +175,6 @@ let g:go_jump_to_error = 0
 
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
-
-" Align line-wise comment delimiters flush left instead of following code
-" indentation
-let g:NERDDefaultAlign = 'left'
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
 
 " single click will open directory nodes, while a double
 " click will still be required for file nodes
