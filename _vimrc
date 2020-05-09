@@ -6,7 +6,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
@@ -165,13 +164,6 @@ nnoremap L gt
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
-
-" run metalinter on autosave
-let g:go_metalinter_autosave = 1
-" what metalinters?
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck', 'gotype']
-" don't jump to the first error after (not working yet)
-let g:go_jump_to_error = 0
 
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
