@@ -7,8 +7,8 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
 "Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
