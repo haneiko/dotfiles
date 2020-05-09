@@ -9,6 +9,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
@@ -204,3 +205,7 @@ map <F4> :NERDTreeToggle<CR>
 
 " auto-close NERDTree when the last file is closed
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
