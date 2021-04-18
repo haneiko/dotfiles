@@ -10,6 +10,10 @@ Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'leafgarland/typescript-vim'
+Plug 'joeytwiddle/vim-diff-traffic-lights-colors'
+Plug 'BenBergman/vsearch.vim'
+Plug 'ocaml/vim-ocaml'
 "Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
@@ -195,3 +199,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
+
+autocmd FileType ocaml setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
