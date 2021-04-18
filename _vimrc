@@ -68,8 +68,8 @@ set tabstop=4
 " Used for |'cindent'|, |>>|, |<<|, etc.
 set shiftwidth=4
 
-" Use real <TAB>s ?
-set noexpandtab
+" Don't use real <TAB>s
+set expandtab
 
 " Don't make a backup before overwriting a file.
 set nobackup
