@@ -159,8 +159,6 @@ let mapleader = ","
 
 " Tab navigation
 nnoremap <Leader>t :tabnew<CR>
-nnoremap H gT
-nnoremap L gt
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
