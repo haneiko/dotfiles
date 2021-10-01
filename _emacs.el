@@ -75,12 +75,7 @@
   ;; (setq projectile-switch-project-action 'neotree-projectile-action)
   ;; let it find current file and jump to node. (not working?)
   ;; (setq neo-smart-open t)
-  (use-package all-the-icons
-    :ensure t
-    :config
-    ;; run this command to install the fonts:
-    ;; all-the-icons-install-fonts
-    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))))
+  )
 
 (use-package evil-leader
   :ensure t
