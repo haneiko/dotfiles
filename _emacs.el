@@ -82,6 +82,24 @@
   ;; (setq neo-smart-open t)
   )
 
+(use-package evil ; vim plugin
+  :ensure t
+  :init
+  ;; (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
 (use-package evil-leader
   :ensure t
   :config
@@ -100,15 +118,6 @@
     "o"  'delete-other-windows  ;; C-w o
     "w"  'save-buffer
     "k"  'goto-line))
-
-(use-package evil ; vim plugin
-  :ensure t
-  :config
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
-  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-  (evil-mode 1))
 
 (use-package paredit ; lisp plugin
   :ensure t
@@ -189,9 +198,8 @@
 (use-package magit ; git plugin
   :ensure t
   :config
-  (global-magit-file-mode 1)
-  (use-package evil-magit
-    :ensure t))
+  ;; (global-magit-file-mode 1)
+  )
 
 (use-package projectile
   :ensure t
