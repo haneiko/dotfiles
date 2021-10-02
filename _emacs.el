@@ -237,6 +237,22 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package tuareg
+  :ensure t)
+
+(use-package reason-mode
+  :ensure t)
+
+(use-package merlin
+  :after tuareg
+  :ensure t
+  :config
+  (add-hook 'tuareg-mode-hook #'merlin-mode))
+
+(use-package merlin-company
+  :after (company merlin)
+  :ensure t)
+
 (use-package yasnippet
   :ensure t
   :config
