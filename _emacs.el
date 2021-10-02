@@ -362,6 +362,15 @@
 		'normal flycheck-mode-map (kbd "[e")
 		'flycheck-previous-error))))
 
+(use-package flycheck-ocaml
+  :after (flycheck merlin)
+  :ensure t
+  :config
+  ;; Disable Merlin's own error checking
+  (setq merlin-error-after-save nil)
+  ;; Enable Flycheck checker
+  (flycheck-ocaml-setup))
+
 (use-package go-mode
   :ensure t
   :config
