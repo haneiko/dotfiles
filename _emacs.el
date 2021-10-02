@@ -200,7 +200,7 @@
     "c"  'comment-dwim
     "e"  'find-file
     "i"  'indent-region
-    "d"  'kill-this-buffer
+    "q"  'kill-this-buffer
     "s"  'eshell
     "g"  'magit-status
     "l"  'whitespace-mode       ;; Show invisible characters
