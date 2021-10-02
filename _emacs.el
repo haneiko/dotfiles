@@ -82,6 +82,21 @@
   ;; (setq neo-smart-open t)
   )
 
+(use-package general
+  :ensure t)
+
+(use-package centaur-tabs
+  :after general
+  :ensure t
+  :config
+  (centaur-tabs-mode t)
+  (general-define-key
+   :states 'motion ; normal mode in vim
+   :prefix "g"
+   "" nil
+   "t" 'centaur-tabs-forward ; vim-like tab navigation
+   "T" 'centaur-tabs-backward))
+
 (use-package evil ; vim plugin
   :ensure t
   :init
@@ -117,6 +132,7 @@
     "l"  'whitespace-mode       ;; Show invisible characters
     "o"  'delete-other-windows  ;; C-w o
     "w"  'save-buffer
+    "t"  'centaur-tabs--create-new-tab
     "k"  'goto-line))
 
 (use-package paredit ; lisp plugin
