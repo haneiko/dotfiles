@@ -79,20 +79,11 @@
   ;; (setq neo-smart-open t)
   )
 
-(use-package general
-  :ensure t)
 
 (use-package centaur-tabs
-  :after general
   :ensure t
   :config
-  (centaur-tabs-mode t)
-  (general-define-key
-   :states 'motion ; normal mode in vim
-   :prefix "g"
-   "" nil
-   "t" 'centaur-tabs-forward ; vim-like tab navigation
-   "T" 'centaur-tabs-backward))
+  (centaur-tabs-mode t))
 
 (use-package evil ; vim plugin
   :ensure t
@@ -104,6 +95,8 @@
   (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-define-key 'normal centaur-tabs-mode-map (kbd "g t") 'centaur-tabs-forward)
+  (evil-define-key 'normal centaur-tabs-mode-map (kbd "g T") 'centaur-tabs-backward)
   (evil-mode 1))
 
 (use-package evil-collection
