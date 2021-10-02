@@ -37,9 +37,6 @@
 ;; (when (boundp 'scroll-bar-mode)
 ;;   (scroll-bar-mode -1))
 
-;; no gui fringes
-(fringe-mode -1)
-
 (load-theme 'wombat t)
 
 ; highlight matching paren, brace
