@@ -237,6 +237,11 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package eldoc
+  :ensure t
+  :config
+  (setq eldoc-echo-area-use-multiline-p t))
+
 (use-package tuareg
   :ensure t)
 
@@ -252,6 +257,11 @@
 (use-package merlin-company
   :after (company merlin)
   :ensure t)
+
+(use-package merlin-eldoc
+  :after (merlin eldoc)
+  :ensure t
+  :hook ((reason-mode tuareg-mode caml-mode) . merlin-eldoc-setup))
 
 (use-package yasnippet
   :ensure t
