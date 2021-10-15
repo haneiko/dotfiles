@@ -12,6 +12,9 @@
 	lol = log --oneline
 	tags = tag --sort=-creatordate
 	fat = fetch --all --tags
+	ds = diff --staged
+	ai = add --interactive
+	d = diff
 
 [log]
 	decorate = auto
