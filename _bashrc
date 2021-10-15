@@ -38,7 +38,7 @@ case "$TERM" in
 	;;
 esac
 
-# If this is an xterm set the title to user@host:dir
+# If this is an xterm set the title to "user@host dir"
 case "$TERM" in
 	xterm*|rxvt*)
 		PS1="\[\e]0;\u@\h \W\a\]$PS1" ;;
