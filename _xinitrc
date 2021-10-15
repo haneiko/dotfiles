@@ -3,4 +3,3 @@
 xset b off
 
 #emacs --daemon &
-exec i3
