@@ -28,13 +28,20 @@ shopt -s checkwinsize
 # No history file for less(1)
 export LESSHISTFILE=-
 
-PS1='\u@\h:\w\$ '
+PS1='\u@\h \W\$ '
 
 case "$TERM" in
 	xterm-color|*-256color|rxvt-unicode)
-		#PS1='\e[90m\u@\h:\e[39m\w$(__git_ps1 " (%s)") \$ '
-		GIT_PS1_SHOWCOLORHINTS=true
-		PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u@\h \[\e[39m\]\W" " $ "'
+        [[ -e /usr/local/share/git-core/contrib/completion/git-prompt.sh ]] && \
+            . /usr/local/share/git-core/contrib/completion/git-prompt.sh
+
+        if [ `type -t __git_ps1` == "function" ]
+        then
+            GIT_PS1_SHOWCOLORHINTS=true
+            PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u@\h \[\e[39m\]\W" " $ "'
+        else
+		    PS1='\[\e[33m\]\u@\h \[\e[39m\]\W $ '
+        fi
 	;;
 esac
 
