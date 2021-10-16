@@ -35,13 +35,13 @@ case "$TERM" in
         [[ -e /usr/local/share/git-core/contrib/completion/git-prompt.sh ]] && \
             . /usr/local/share/git-core/contrib/completion/git-prompt.sh
 
-        if [ `type -t __git_ps1` == "function" ]
-        then
-            GIT_PS1_SHOWCOLORHINTS=true
+        [[ -e /usr/lib/git-core/git-sh-prompt ]] && \
+            . /usr/lib/git-core/git-sh-prompt
+
+        PS1='\[\e[33m\]\u@\h \[\e[39m\]\W $ '
+        [[ $(type -t __git_ps1) == function ]] && \
+            GIT_PS1_SHOWCOLORHINTS=true && \
             PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u@\h \[\e[39m\]\W" " $ "'
-        else
-		    PS1='\[\e[33m\]\u@\h \[\e[39m\]\W $ '
-        fi
 	;;
 esac
 
