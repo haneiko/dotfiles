@@ -1,22 +1,9 @@
 #!/usr/bin/env bash
 
-case $(uname) in
-	Linux)
-		alias ls='ls -hF --color=auto'
-	;;
-	FreeBSD)
-		alias ls='ls -hFG'
-	;;
-esac
-
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias ll='ls -l'
-alias la='ls -A'
-alias lla='ll -A'
-alias j='jobs -l'
-alias h='history 25'
 alias g='git'
 alias y='yarn'
 alias emc='emacsclient -a "" -nw'
