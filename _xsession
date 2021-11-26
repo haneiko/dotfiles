@@ -1,0 +1,12 @@
+#!/bin/sh
+#dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+#xset b off
+#xsetroot -solid black & # desktop background
+#emacs --daemon &
+slstatus &
+nm-applet &
+mate-volume-control-status-icon &
+ibus-daemon --daemonize --xim &
+# TODO see xautolock -resetsaver
+xautolock -time 5 -locker slock &
+exec dwm

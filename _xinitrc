@@ -1,9 +1,0 @@
-#!/bin/sh
-
-xset b off
-xsetroot -solid black & # desktop background
-xautolock \
-	-time 5 \
-	-locker ~/.local/bin/lock_screen \
-	-resetsaver &
-#emacs --daemon &
