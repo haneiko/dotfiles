@@ -7,8 +7,10 @@ case $- in
 esac
 
 export EDITOR=vim
+export VISUAL=vim
 export SVN_EDITOR='vim -u /etc/vim/vimrc'
 export PAGER=less
+export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$HOME/.local/bin:$PATH"
 
 # don't put duplicate lines or lines starting with space in the history.
