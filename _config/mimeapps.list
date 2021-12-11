@@ -1,0 +1,6 @@
+[Default Applications]
+image/jpeg=my-feh.desktop
+image/png=my-feh.desktop
+image/bmp=my-feh.desktop
+image/gif=eom.desktop
+text/plain=vim.desktop
