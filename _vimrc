@@ -44,7 +44,7 @@ set ruler
 set wildmenu
 
 " Minimal number of screen lines to keep above and below the cursor.
-set scrolloff=1
+set scrolloff=5
 
 " When a file has been detected to have been changed outside of Vim and
 " it has not been changed inside of Vim, automatically read it again.
