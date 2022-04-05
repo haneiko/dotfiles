@@ -1,6 +1,11 @@
 #!/bin/sh
 #dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
-#xset b off
+
+# disables x bell
+xset b off
+# disables x screen saver
+xset s off -dpms
+
 #xsetroot -solid black & # desktop background
 #emacs --daemon &
 slstatus &
