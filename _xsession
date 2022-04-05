@@ -8,10 +8,5 @@ xset s off -dpms
 
 #xsetroot -solid black & # desktop background
 #emacs --daemon &
-slstatus &
-nm-applet &
-mate-volume-control-status-icon &
-ibus-daemon --daemonize --xim &
-# TODO see xautolock -resetsaver
-xautolock -time 5 -locker slock &
+runsvdir -P ~/my-runit &
 exec dwm
