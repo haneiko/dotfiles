@@ -88,8 +88,6 @@ set undolevels=1000
 " Save the whole buffer for undo when reloading it.
 set undoreload=10000
 
-set visualbell
-
 " When on, the ":substitute" flag 'g' is default on.  This means that
 " all matches in a line are substituted instead of one.
 set gdefault
