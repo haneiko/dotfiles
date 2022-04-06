@@ -7,6 +7,5 @@ xset b off
 xset s off -dpms
 
 xsetroot -solid black # desktop background
-#emacs --daemon &
 runsvdir -P ~/my-runit &
 exec dwm
