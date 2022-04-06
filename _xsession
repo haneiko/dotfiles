@@ -6,7 +6,7 @@ xset b off
 # disables x screen saver
 xset s off -dpms
 
-#xsetroot -solid black & # desktop background
+xsetroot -solid black # desktop background
 #emacs --daemon &
 runsvdir -P ~/my-runit &
 exec dwm
