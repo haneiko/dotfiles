@@ -13,8 +13,6 @@ Plug 'tpope/vim-commentary'
 Plug 'leafgarland/typescript-vim'
 Plug 'joeytwiddle/vim-diff-traffic-lights-colors'
 Plug 'BenBergman/vsearch.vim'
-Plug 'ocaml/vim-ocaml'
-"Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
 " Don't be vi-compatible
