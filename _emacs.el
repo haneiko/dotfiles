@@ -371,6 +371,10 @@
   ;; Enable Flycheck checker
   (flycheck-ocaml-setup))
 
+(use-package ocamlformat
+  :ensure t
+  :config (add-hook 'before-save-hook 'ocamlformat-before-save))
+
 (use-package go-mode
   :ensure t
   :config
