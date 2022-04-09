@@ -20,7 +20,6 @@ set nocompatible
 
 set autoindent
 set backspace=indent,eol,start
-set smarttab
 " disable preview window when completing
 set completeopt-=preview
 
@@ -59,16 +58,6 @@ set textwidth=80
 
 " Print the line number in front of each line.
 set nonumber
-
-" Number of spaces that a <Tab> in the file counts for.
-set tabstop=4
-
-" Number of spaces to use for each step of (auto)indent.
-" Used for |'cindent'|, |>>|, |<<|, etc.
-set shiftwidth=4
-
-" Don't use real <TAB>s
-set expandtab
 
 " Don't make a backup before overwriting a file.
 set nobackup
