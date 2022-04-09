@@ -331,7 +331,9 @@
   :ensure t
   :config
   (projectile-mode 1)
-  (setq projectile-enable-caching t))
+  (setq projectile-enable-caching t)
+  (setq compilation-read-command nil)
+  (define-key projectile-mode-map (kbd "<f5>") #'projectile-compile-project))
 
 ;; install silversearcher-ag
 (use-package ag
@@ -358,10 +360,10 @@
   (add-hook 'flycheck-mode-hook
 	    (lambda ()
 	      (evil-define-key
-		'normal flycheck-mode-map (kbd "]e")
+		'normal flycheck-mode-map (kbd "<f6>")
 		'flycheck-next-error)
 	      (evil-define-key
-		'normal flycheck-mode-map (kbd "[e")
+		'normal flycheck-mode-map (kbd "<f7>")
 		'flycheck-previous-error))))
 
 (use-package flycheck-ocaml
@@ -426,12 +428,6 @@
             (setq backward-delete-char-untabify-method nil)
             ;; align # to the left
             (setq c-electric-pound-behavior '(alignleft))
-            (setq compilation-read-command nil)
-            (setq compilation-ask-about-save nil)
-            (setq compile-command "make -k")
-            (local-set-key (kbd "C-c C-c") 'compile)
-            (local-set-key (kbd "M-n") 'next-error)
-            (local-set-key (kbd "M-N") 'previous-error)
             ;; on save delete all trailing whitespace
             (add-to-list 'write-file-functions
                          'delete-trailing-whitespace)))
@@ -450,8 +446,7 @@
 
 (add-hook 'latex-mode-hook`
 	  (lambda ()
-	    (turn-on-auto-fill)
-	    (setq compilation-read-command nil)))
+	    (turn-on-auto-fill)))
 
 (provide 'emacs)
 ;;; emacs.el ends here
