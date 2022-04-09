@@ -290,30 +290,7 @@
   (use-package company-c-headers
     :ensure t
     :config
-    (add-to-list 'company-backends 'company-c-headers)
-    (add-to-list 'company-c-headers-path-system
-                 (list "/usr/include/c++/4.8/"
-                       "/usr/include/gtk-3.0"
-                       "/usr/include/gtk-3.0"
-                       "/usr/include/at-spi2-atk/2.0"
-                       "/usr/include/at-spi-2.0"
-                       "/usr/include/dbus-1.0"
-                       "/usr/lib/x86_64-linux-gnu/dbus-1.0/include"
-                       "/usr/include/gtk-3.0"
-                       "/usr/include/gio-unix-2.0/"
-                       "/usr/include/cairo"
-                       "/usr/include/pango-1.0"
-                       "/usr/include/harfbuzz"
-                       "/usr/include/pango-1.0"
-                       "/usr/include/atk-1.0"
-                       "/usr/include/cairo"
-                       "/usr/include/pixman-1"
-                       "/usr/include/freetype2"
-                       "/usr/include/libpng16"
-                       "/usr/include/gdk-pixbuf-2.0"
-                       "/usr/include/libpng16"
-                       "/usr/include/glib-2.0"
-                       "/usr/lib/x86_64-linux-gnu/glib-2.0/include"))))
+    (add-to-list 'company-backends 'company-c-headers)))
 ;; only /usr/include/ and /usr/local/include/ by default
 
 (use-package geiser ; scheme plugin
