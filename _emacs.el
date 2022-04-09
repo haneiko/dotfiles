@@ -32,6 +32,8 @@
 ; Show column number in the mode line
 (column-number-mode 1)
 
+(setq show-trailing-whitespace t)
+
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 ;; (when (boundp 'scroll-bar-mode)
@@ -430,7 +432,6 @@
             (local-set-key (kbd "C-c C-c") 'compile)
             (local-set-key (kbd "M-n") 'next-error)
             (local-set-key (kbd "M-N") 'previous-error)
-            (setq show-trailing-whitespace t)
             ;; on save delete all trailing whitespace
             (add-to-list 'write-file-functions
                          'delete-trailing-whitespace)))
@@ -439,7 +440,6 @@
 	  (lambda ()
 	    ;; underscore will be recognised as word character
 	    (modify-syntax-entry ?_ "w")
-	    (setq show-trailing-whitespace t)
 	    ;; on save delete all trailing whitespace
 	    (add-to-list 'write-file-functions
 			 'delete-trailing-whitespace)
