@@ -448,5 +448,14 @@
 	  (lambda ()
 	    (turn-on-auto-fill)))
 
+(custom-set-faces
+ '(default
+    ((t (:family "Liberation Mono"
+                 :foundry "1ASC"
+                 :slant normal
+                 :weight normal
+                 :height 90
+                 :width normal)))))
+
 (provide 'emacs)
 ;;; emacs.el ends here
