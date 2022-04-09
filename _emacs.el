@@ -42,7 +42,7 @@
 (load-theme 'wombat t)
 
 ; highlight matching paren, brace
-;; (show-paren-mode 1)
+(show-paren-mode 1)
 
 ; auto-pair ({[]})
 (electric-pair-mode 1)
