@@ -75,8 +75,6 @@
   :ensure t
   :defer t
   :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "<f8>") #'treemacs-select-window))
   (with-eval-after-load 'treemacs
     (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
   :config
@@ -146,7 +144,7 @@
     (treemacs-hide-gitignored-files-mode nil))
   :bind
   (:map global-map
-        ("<f8>"       . treemacs-select-window)
+        ("<f4>"      . treemacs-select-window)
         ("C-x t 1"   . treemacs-delete-other-windows)
         ("C-x t t"   . treemacs)
         ("C-x t B"   . treemacs-bookmark)
@@ -333,7 +331,8 @@
   (projectile-mode 1)
   (setq projectile-enable-caching t)
   (setq compilation-read-command nil)
-  (define-key projectile-mode-map (kbd "<f5>") #'projectile-compile-project))
+  (define-key projectile-mode-map (kbd "<f5>") #'projectile-compile-project)
+  (define-key projectile-mode-map (kbd "<f8>") #'projectile-test-project))
 
 ;; install silversearcher-ag
 (use-package ag
