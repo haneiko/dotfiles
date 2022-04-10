@@ -355,6 +355,14 @@
   :ensure t
   :config (add-hook 'before-save-hook 'ocamlformat-before-save))
 
+(use-package dune
+  :ensure t
+  :config
+  (use-package dune-format
+    :ensure t
+    :config
+    (add-hook 'dune-mode-hook 'dune-format-on-save-mode)))
+
 (use-package go-mode
   :ensure t
   :config
