@@ -209,6 +209,12 @@
     "t"  'centaur-tabs--create-new-tab
     "k"  'goto-line))
 
+(use-package evil-surround
+  :after evil
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
 (use-package paredit ; lisp plugin
   :ensure t
   :config
