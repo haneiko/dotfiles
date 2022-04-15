@@ -315,7 +315,13 @@
   (setq projectile-enable-caching t)
   (setq compilation-read-command nil)
   (define-key projectile-mode-map (kbd "<f5>") #'projectile-compile-project)
-  (define-key projectile-mode-map (kbd "<f8>") #'projectile-test-project))
+  (define-key projectile-mode-map (kbd "<f8>") #'projectile-test-project)
+  (define-key projectile-mode-map (kbd "<f9>") #'projectile-run-project)
+  (projectile-register-project-type 'ocaml-dune '("dune-project")
+                                    :project-file "dune-project"
+                                    :compile "dune build"
+                                    :test "dune runtest"
+                                    :run "make run"))
 
 ;; install silversearcher-ag
 (use-package ag
