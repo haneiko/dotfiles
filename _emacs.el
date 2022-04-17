@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(setq custom-file "~/.emacs.d/custom123.el")
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
