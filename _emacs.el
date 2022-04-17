@@ -181,6 +181,18 @@
   :config
   (evil-define-key 'normal centaur-tabs-mode-map (kbd "g t") 'centaur-tabs-forward)
   (evil-define-key 'normal centaur-tabs-mode-map (kbd "g T") 'centaur-tabs-backward)
+  (defun my/evil-shift-right ()
+    (interactive)
+    (evil-shift-right evil-visual-beginning evil-visual-end)
+    (evil-normal-state)
+    (evil-visual-restore))
+  (defun my/evil-shift-left ()
+    (interactive)
+    (evil-shift-left evil-visual-beginning evil-visual-end)
+    (evil-normal-state)
+    (evil-visual-restore))
+  (evil-define-key 'visual global-map (kbd ">") 'my/evil-shift-right)
+  (evil-define-key 'visual global-map (kbd "<") 'my/evil-shift-left)
   (evil-mode 1))
 
 (use-package evil-collection
