@@ -10,6 +10,7 @@ export EDITOR=vim
 export VISUAL=vim
 export SVN_EDITOR='vim -u /etc/vim/vimrc'
 export PAGER=less
+export ROVER_OPEN=xdg-open
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$HOME/.local/bin:$PATH"
 
