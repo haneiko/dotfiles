@@ -63,10 +63,8 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-if [ "$TERM" == "linux" ]; then
-	# disable bell
-	setterm --blength 0
-fi
+# disable bell
+[ "$TERM" = "linux" ] && setterm --blength 0
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -79,6 +77,4 @@ alias emt='emacs -nw'
 alias op='xdg-open'
 complete -F _longopt op
 
-if [ -f ~/.bash_local ]; then
-	. ~/.bash_local
-fi
+[ -f ~/.bash_local ] && . ~/.bash_local
