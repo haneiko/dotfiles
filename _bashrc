@@ -13,6 +13,8 @@ export PAGER=less
 export ROVER_OPEN=xdg-open
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$HOME/.local/bin:$PATH"
+# No history file for less(1)
+export LESSHISTFILE=-
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
@@ -27,9 +29,6 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# No history file for less(1)
-export LESSHISTFILE=-
 
 PS1='\u@\h \W\$ '
 
