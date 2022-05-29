@@ -67,6 +67,7 @@ fi
 [ "$TERM" = "linux" ] && setterm --blength 0
 
 alias ls='ls --color=auto'
+[ $(uname) = "FreeBSD" ] && alias ls='ls --color=auto -G'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
