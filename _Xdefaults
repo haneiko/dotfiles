@@ -7,8 +7,10 @@ URxvt.perl-ext-common: selection-to-clipboard
 URxvt.iso14755:        false
 URxvt.iso14755_52:     false
 URxvt*fading:          15
-URxvt.font:     xft:bitstream vera sans mono:size=8:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=8:antialias=true
+URxvt.font:     xft:Liberation Mono:pixelsize=12:antialias=true:autohint=true
+URxvt.boldFont: xft:Liberation Mono:bold:pixelsize=12:antialias=true:autohint=true
+URxvt*letterSpace: -1
+xterm*faceName: Liberation Mono:pixelsize=12:antialias=true:autohint=true
 *scrollBar:          false
 #URxvt*scrollBar_floating: true
 #URxvt*scrollBar_right:    true
