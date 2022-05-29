@@ -7,11 +7,11 @@ URxvt.perl-ext-common: selection-to-clipboard
 URxvt.iso14755:        false
 URxvt.iso14755_52:     false
 URxvt*fading:          15
-URxvt*scrollBar:          true
-URxvt*scrollBar_floating: true
-URxvt*scrollBar_right:    true
 URxvt.font:     xft:bitstream vera sans mono:size=8:antialias=true
 URxvt.boldFont: xft:bitstream vera sans mono:bold:size=8:antialias=true
+*scrollBar:          false
+#URxvt*scrollBar_floating: true
+#URxvt*scrollBar_right:    true
 
 URxvt.keysym.Shift-Up:      command:\033]720;1\007
 URxvt.keysym.Shift-Down:    command:\033]721;1\007
