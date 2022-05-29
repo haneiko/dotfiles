@@ -3,6 +3,7 @@
 *termName:             xterm-256color
 URxvt*termName:        xterm-256color
 URxvt.perl-ext-common: selection-to-clipboard
+/* stop Ctrl-Shift from entering ISO 14755 mode */
 URxvt.iso14755:        false
 URxvt.iso14755_52:     false
 URxvt*fading:          15
