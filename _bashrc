@@ -30,7 +30,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-PS1='\u@\h \W\$ '
+PS1='\u@\h \w\$ '
 
 case "$TERM" in
 	xterm-color|*-256color|rxvt-unicode)
@@ -40,17 +40,17 @@ case "$TERM" in
         [[ -e /usr/lib/git-core/git-sh-prompt ]] && \
             . /usr/lib/git-core/git-sh-prompt
 
-        PS1='\[\e[33m\]\u@\h \[\e[39m\]\W $ '
+        PS1='\[\e[33m\]\u@\h \[\e[39m\]\w $ '
         [[ $(type -t __git_ps1) == function ]] && \
             GIT_PS1_SHOWCOLORHINTS=true && \
-            PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u@\h \[\e[39m\]\W" " $ "'
+            PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u@\h \[\e[39m\]\w" " $ "'
 	;;
 esac
 
 # If this is an xterm set the title to "user@host dir"
 case "$TERM" in
-	xterm*|rxvt*)
-		PS1="\[\e]0;\u@\h \W\a\]$PS1" ;;
+	xterm*|rxvt*|st*)
+		PS1="\[\e]0;\u@\h \w\a\]$PS1" ;;
 esac
 
 if ! shopt -oq posix; then
