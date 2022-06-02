@@ -310,7 +310,10 @@
   (use-package company-c-headers
     :ensure t
     :config
-    (add-to-list 'company-backends 'company-c-headers)))
+    (add-to-list 'company-backends 'company-c-headers)
+    (add-to-list 'company-c-headers-path-system
+                 (list "/usr/include"
+                       "/usr/local/include"))))
 ;; only /usr/include/ and /usr/local/include/ by default
 
 (use-package geiser ; scheme plugin
@@ -389,6 +392,35 @@
     :config
     (add-hook 'dune-mode-hook 'dune-format-on-save-mode)))
 
+;; :irony-install-server
+;; requires
+;;     cmake (pkg install cmake)
+;;     libclang (FreeBSD already have)
+;;         find ClangConfig.cmake and add to the install command
+;;     .clang_complete file on the project root with all cc flags on it
+(use-package irony
+  :ensure t
+  :config
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+(use-package irony-eldoc
+  :ensure t
+  :config
+  (add-hook 'irony-mode-hook 'irony-eldoc))
+
+(use-package company-irony
+  :after (company irony)
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-irony))
+
+(use-package flycheck-irony
+  :after (flycheck irony)
+  :ensure t
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
 (use-package go-mode
   :ensure t
   :config
@@ -439,6 +471,8 @@
             ;; align # to the left
             (setq c-electric-pound-behavior '(alignleft))
             ;; on save delete all trailing whitespace
+            ;; (setq flycheck-clang-include-path
+            ;;       (list "/usr/include" "/usr/local/include"))
             (add-to-list 'write-file-functions
                          'delete-trailing-whitespace)))
 
