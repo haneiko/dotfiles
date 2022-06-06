@@ -338,7 +338,15 @@
                                     :project-file "dune-project"
                                     :compile "dune build"
                                     :test "dune runtest"
-                                    :run "make run"))
+                                    :run "make run")
+  (projectile-register-project-type 'purescript-spago '("spago.dhall")
+                                    :project-file "spago.dhall"
+                                    :compile "spago build"
+                                    :test "spago test"
+                                    :run "spago run"
+                                    :src-dir "src"
+                                    :test-dir "test"
+                                    :test-suffix "_test"))
 
 ;; install silversearcher-ag
 (use-package ag
@@ -446,6 +454,31 @@
 ;;   :config
 ;;   (use-package go-snippets
     ;; :ensure t))
+
+;; npm install -g purescript@0.14.9 spago purty
+;; git clone https://gitlab.com/joneshf/purty.git ~/projects/
+(use-package purescript-mode
+  :ensure t
+  :config
+  (add-hook
+   'purescript-mode-hook
+   (lambda ()
+     (evil-define-key 'normal purescript-mode-map (kbd "g ]") 'psc-ide-goto-definition)
+     (evil-define-key 'normal purescript-mode-map (kbd "g [") 'pop-tag-mark)
+     (setq projectile-create-missing-test-files t)
+     (turn-on-purescript-indentation)
+     ;; (add-to-list 'load-path "~/projects/purty/")
+     ;; (require 'purty)
+     ;; (purty-on-save-mode)
+     ))
+  (use-package psc-ide
+    :ensure t
+    :config
+    (add-hook 'purescript-mode-hook
+              (lambda ()
+                (psc-ide-mode)
+                ;; (psc-ide-server-start (projectile-project-root))
+                ))))
 
 (add-hook 'python-mode-hook`
 	  (lambda ()
