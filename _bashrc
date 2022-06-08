@@ -6,13 +6,23 @@ case $- in
 	*) return ;;
 esac
 
+function add_PATH() {
+    case $PATH in
+        *$1*) ;;
+        *) [ -n "$2" -a "$2" = "prep" ] && PATH="$1:$PATH" || PATH="$PATH:$1" ;;
+    esac
+}
+
 export EDITOR=vim
 export VISUAL=vim
 export SVN_EDITOR='vim -u /etc/vim/vimrc'
 export PAGER=less
 export ROVER_OPEN=xdg-open
-export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="$HOME/.local/bin:$PATH"
+add_PATH "/usr/local/sbin"
+add_PATH "/usr/sbin"
+add_PATH "/sbin"
+add_PATH "$HOME/.local/bin" prep
+export PATH
 # No history file for less(1)
 export LESSHISTFILE=-
 export DVTM_TERM=xterm
