@@ -494,7 +494,7 @@
             ;; underscore will be recognised as word character
             (modify-syntax-entry ?_ "w")
             ;; set old style comments
-            (setq comment-style 'extra-line)
+            ;; (setq comment-style 'extra-line)
             (setq c-basic-offset 8)
             (setq tab-width 8)
             (setq indent-tabs-mode t)
