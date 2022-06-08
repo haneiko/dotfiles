@@ -503,9 +503,9 @@
             (setq backward-delete-char-untabify-method nil)
             ;; align # to the left
             (setq c-electric-pound-behavior '(alignleft))
-            ;; on save delete all trailing whitespace
             ;; (setq flycheck-clang-include-path
             ;;       (list "/usr/include" "/usr/local/include"))
+            ;; on save delete all trailing whitespace
             (add-to-list 'write-file-functions
                          'delete-trailing-whitespace)))
 
