@@ -100,7 +100,7 @@
           treemacs-max-git-entries                 5000
           treemacs-missing-project-action          'ask
           treemacs-move-forward-on-expand          nil
-          treemacs-no-png-images                   nil
+          treemacs-no-png-images                   1
           treemacs-no-delete-other-windows         t
           treemacs-project-follow-cleanup          nil
           treemacs-persist-file                    (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
@@ -124,7 +124,7 @@
           treemacs-text-scale                      nil
           treemacs-user-mode-line-format           nil
           treemacs-user-header-line-format         nil
-          treemacs-width                           35
+          treemacs-width                           25
           treemacs-width-is-initially-locked       t
           treemacs-workspace-switch-cleanup        nil)
 
@@ -160,11 +160,6 @@
 (use-package treemacs-projectile
   :after (treemacs projectile)
   :ensure t)
-
-(use-package treemacs-icons-dired
-  :after (treemacs dired)
-  :ensure t
-  :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
   :after (treemacs magit)
