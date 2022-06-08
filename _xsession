@@ -8,6 +8,8 @@ xset b off
 # disables x screen saver
 xset s off -dpms
 
+[ $(uname) = "FreeBSD" ] && my-brightness load
+
 xsetroot -solid black # desktop background
-runsvdir -P /home/mateus/my-runit &
+runsvdir -P ~/my-runit &
 exec dwm
