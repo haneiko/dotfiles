@@ -1,5 +1,6 @@
 #!/bin/sh
 cd
+export PATH="$HOME/.local/bin:$PATH"
 #dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 
 # disables x bell
