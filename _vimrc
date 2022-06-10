@@ -10,7 +10,6 @@ Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'leafgarland/typescript-vim'
 Plug 'joeytwiddle/vim-diff-traffic-lights-colors'
 Plug 'BenBergman/vsearch.vim'
 call plug#end()
