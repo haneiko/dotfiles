@@ -25,8 +25,8 @@ set completeopt-=preview
 " While typing a search command, show where the pattern, as it was typed
 " so far, matches.
 set incsearch
-" Use <C-L> to clear the highlighting of :set hlsearch.
-nnoremap <silent> <C-L> :nohlsearch<CR>
+" Use <Esc><Esc> to clear the highlighting of :set hlsearch.
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " The last window will always have a status line
 set laststatus=2
