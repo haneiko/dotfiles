@@ -224,8 +224,7 @@
     "l"  'whitespace-mode       ;; Show invisible characters
     "o"  'delete-other-windows  ;; C-w o
     "w"  'save-buffer
-    "t"  'centaur-tabs--create-new-tab
-    "k"  'goto-line))
+    "t"  'centaur-tabs--create-new-tab))
 
 (use-package evil-surround
   :after evil
