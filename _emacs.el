@@ -214,7 +214,9 @@
     ","  'other-window
     "r"  'evil-edit
     "c"  'comment-dwim
-    "e"  'find-file
+    ;; "e"  'find-file
+    ;; "e"  'helm-find-files
+    "e"  'projectile-find-file
     "i"  'indent-region
     "q"  'kill-this-buffer
     "s"  'eshell
