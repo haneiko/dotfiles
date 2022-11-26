@@ -23,10 +23,10 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ; display line numbers in the left margin
-(when (version<= "26.0.50" emacs-version)
-  (global-display-line-numbers-mode))
 ;; disables the old way
 (linum-mode -1)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode 1)
 
 ; Disables the manual page on startup
 (setq inhibit-startup-screen t)

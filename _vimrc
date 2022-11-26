@@ -56,7 +56,8 @@ filetype plugin indent on
 set textwidth=80
 
 " Print the line number in front of each line.
-set nonumber
+set number
+set relativenumber
 
 " Don't make a backup before overwriting a file.
 set nobackup
