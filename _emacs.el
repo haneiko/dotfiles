@@ -333,6 +333,7 @@
   (projectile-mode 1)
   (setq projectile-enable-caching t)
   (setq compilation-read-command nil)
+  (define-key projectile-mode-map (kbd "<f3>") #'projectile-replace)
   (define-key projectile-mode-map (kbd "<f5>") #'projectile-compile-project)
   (define-key projectile-mode-map (kbd "<f8>") #'projectile-test-project)
   (define-key projectile-mode-map (kbd "<f9>") #'projectile-run-project)
