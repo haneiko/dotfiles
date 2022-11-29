@@ -289,7 +289,9 @@
 (use-package yasnippet
   :ensure t
   :config
-  (yas-global-mode 1))
+  (yas-global-mode 1)
+  (use-package yasnippet-snippets
+    :ensure t))
 
 (use-package company ; auto-complete plugin
   :ensure t
