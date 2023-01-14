@@ -6,7 +6,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
-Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -152,10 +151,6 @@ nnoremap <Leader>Q :q!<CR>
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
-" single click will open directory nodes, while a double
-" click will still be required for file nodes
-let g:NERDTreeMouseMode = 2
-
 " let g:netrw_winsize = 25
 " let g:netrw_liststyle = 3     " tree list style on netrw
 " let g:netrw_banner = 0        " no banner
@@ -167,14 +162,6 @@ let g:NERDTreeMouseMode = 2
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
-
-map <F4> :NERDTreeToggle<CR>
-" nnoremap <Leader>n :NERDTreeToggle<CR>
-" nnoremap <Leader>f :NERDTreeFind<CR>
-" map <F4> :NERDTreeFind<CR>
-
-" auto-close NERDTree when the last file is closed
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
