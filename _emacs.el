@@ -43,6 +43,10 @@
 
 (load-theme 'wombat t)
 
+;; highlight column 81
+(setq-default display-fill-column-indicator-column 80)
+(global-display-fill-column-indicator-mode)
+
 ; highlight matching paren, brace
 (show-paren-mode 1)
 
