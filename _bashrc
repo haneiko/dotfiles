@@ -79,6 +79,9 @@ fi
 
 alias ls='ls --color=auto'
 [ $(uname) = "FreeBSD" ] && alias ls='ls --color=auto -G'
+alias la='ls -a'
+alias lf='ls -A'
+alias ll='ls -lA'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
