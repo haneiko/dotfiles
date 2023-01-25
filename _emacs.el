@@ -489,6 +489,17 @@
                 ;; (psc-ide-server-start (projectile-project-root))
                 ))))
 
+(use-package sml-mode
+  :ensure t
+  :config
+  (use-package sml-basis
+    :ensure t))
+
+(add-hook 'sml-mode-hook`
+          (lambda ()
+            ;; underscore will be recognised as word character
+            (modify-syntax-entry ?_ "w")))
+
 (add-hook 'python-mode-hook`
 	  (lambda ()
 	    ;; underscore will be recognised as word character
