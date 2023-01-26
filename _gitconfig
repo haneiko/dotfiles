@@ -18,6 +18,7 @@
 	ds = diff --staged
 	ai = add --interactive
 	d = diff
+	dt = difftool
 
 [log]
 	decorate = auto
@@ -25,5 +26,9 @@
 [magit]
 	hideCampaign = true
 
+[difftool]
+	prompt = true
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
