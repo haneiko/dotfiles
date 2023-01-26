@@ -44,27 +44,24 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-PS1='\u@\h \w\$ '
+PST="\[\e]0;\u@\h \w\a\]"
+PSE=" \$ "
+PS1="$PST\u@\h \w$PSE"
+PROMPT_COMMAND=
 
 case "$TERM" in
-	xterm-color|*-256color|rxvt-unicode)
-        [[ -e /usr/local/share/git-core/contrib/completion/git-prompt.sh ]] && \
-            . /usr/local/share/git-core/contrib/completion/git-prompt.sh
+xterm*|*color|rxvt-unicode)
+	[[ -e /usr/local/share/git-core/contrib/completion/git-prompt.sh ]] && \
+		. /usr/local/share/git-core/contrib/completion/git-prompt.sh
 
-        [[ -e /usr/lib/git-core/git-sh-prompt ]] && \
-            . /usr/lib/git-core/git-sh-prompt
+	[[ -e /usr/lib/git-core/git-sh-prompt ]] && \
+		. /usr/lib/git-core/git-sh-prompt
 
-        PS1='\[\e[33m\]\u@\h \[\e[39m\]\w $ '
-        [[ $(type -t __git_ps1) == function ]] && \
-            GIT_PS1_SHOWCOLORHINTS=true && \
-            PROMPT_COMMAND='__git_ps1 "\[\e[33m\]\u@\h \[\e[39m\]\w" " $ "'
+	GPS1="$PST\[\e[36m\]\u\[\e[39m\]@\[\e[36m\]\h \[\e[39m\]\w"
+	[[ $(type -t __git_ps1) == function ]] && \
+		GIT_PS1_SHOWCOLORHINTS=true && \
+		PROMPT_COMMAND='__git_ps1 "$GPS1" "$PSE"'
 	;;
-esac
-
-# If this is an xterm set the title to "user@host dir"
-case "$TERM" in
-	xterm*|rxvt*|st*)
-		PS1="\[\e]0;\u@\h \w\a\]$PS1" ;;
 esac
 
 if ! shopt -oq posix; then
