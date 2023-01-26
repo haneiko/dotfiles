@@ -11,5 +11,5 @@ xset s off -dpms
 [ $(uname) = "FreeBSD" ] && my-brightness load
 
 xsetroot -solid black # desktop background
-runsvdir -P ~/my-runit &
+runsvdir -P $HOME/.local/share/runit-services &
 exec dwm
