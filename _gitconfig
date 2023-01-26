@@ -11,6 +11,7 @@
 [alias]
 	ca = commit -am
 	cm = commit -m
+	co = checkout
 	s = status
 	lol = log --oneline
 	tags = tag --sort=-creatordate
