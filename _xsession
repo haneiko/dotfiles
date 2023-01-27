@@ -7,9 +7,11 @@ export PATH="$HOME/.local/bin:$PATH"
 xset b off
 # disables x screen saver
 xset s off -dpms
-
 [ $(uname) = "FreeBSD" ] && my-brightness load
-
 xsetroot -solid black # desktop background
+
 runsvdir -P $HOME/.local/share/runit-services &
-exec dwm
+RUNSVDIR_PID=$!
+dwm
+kill -HUP $RUNSVDIR_PID
+wait
