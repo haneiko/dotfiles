@@ -45,7 +45,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 PST="\[\e]0;\u@\h \w\a\]"
-PSE=" \$ "
+PSE="\n\$ "
 PS1="$PST\u@\h \w$PSE"
 PROMPT_COMMAND=
 
