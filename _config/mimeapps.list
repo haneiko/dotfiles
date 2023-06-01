@@ -11,3 +11,10 @@ text/x-csrc=nvim.desktop
 text/*=nvim.desktop
 application/x-shellscript=nvim.desktop
 application/pdf=atril.desktop
+
+text/html=chromium.desktop
+text/xml=chromium.desktop
+application/xhtml_xml=chromium.desktop
+application/x-mimearchive=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
